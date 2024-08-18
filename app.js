@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var translateRouter = require('./routes/translate');
 
 var app = express();
 
@@ -19,7 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/translate', translateRouter);
+// app.use('/translate', translateRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));
